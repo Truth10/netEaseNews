@@ -7,7 +7,8 @@
 //
 
 #import "WJWHomeViewController.h"
-
+#import "WJWChannel.h"
+#import "WJWChannelLabel.h"
 @interface WJWHomeViewController ()
 /**
  *  频道scrollView
@@ -37,8 +38,10 @@
 }
 
 - (void)setUpChannels{
+    // 1.获取频道数组
+    self.channels = [WJWChannel channels];
 
-
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
