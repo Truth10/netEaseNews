@@ -10,6 +10,19 @@
 
 @implementation WJWChannel
 
+- (void)setTid:(NSString *)tid{
+    _tid = tid;
+    
+    //生成我对应频道的URLString
+    if ([_tid isEqualToString:@"T1348647853363"]) {//头条
+        _tidURLString = @"http://c.m.163.com/nc/article/headline/T1348647853363/0-20.html";
+    }else{
+        _tidURLString = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/list/%@/0-20.html",_tid];
+    }
+
+    NSLog(@"tidURLString:%@",_tidURLString);
+}
+
 #pragma mark - 字典转模型
 + (instancetype)channelWithDict:(NSDictionary *)dict{
     id obj = [[self alloc] init];

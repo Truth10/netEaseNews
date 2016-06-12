@@ -9,6 +9,8 @@
 #import "WJWHomeViewController.h"
 #import "WJWChannel.h"
 #import "WJWChannelLabel.h"
+#import "WJWCollectionViewCell.h"
+//#import ""
 @interface WJWHomeViewController ()<UICollectionViewDataSource>
 /**
  *  频道scrollView
@@ -48,7 +50,7 @@
 - (void)setUpChannels{
     // 1.获取频道数组
     self.channels = [WJWChannel channels];
-
+    
     // 2.创建label
     CGFloat channelLabelW = 80;
     CGFloat channelLabelH = self.channelScrollView.bounds.size.height;
@@ -67,7 +69,7 @@
         // 将label添加到channelScrollView上
         [self.channelScrollView addSubview:lable];
     }
-
+    
     // 设置channelScrollView的contentSize
     self.channelScrollView.contentSize = CGSizeMake(channelLabelW * self.channels.count, channelLabelH);
 }
@@ -94,17 +96,22 @@
     return self.channels.count;
 }
 
-// 返回
+// 返回每一个格子的内容
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-
-    // 1.创建cell
-    static NSString *ID = @"news";
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     
-//    if (cell == nil) {
-//        cell = [[UICollectionViewCell alloc] initwith];
-//    }
-    // 2.设置数据
+    // 1.创建cell
+    //cell循环利用
+    
+    static NSString *ID = @"news";
+    WJWCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    
+    
+    // 2.cell循环利用
+    WJWChannel *channel = self.channels[indexPath.item
+                                        ];
+#warning mark - 此处cell显示的类型并不是WJWCollectionViewCell,而是UICollectionViewCell
+    // MARK: - bug解决方法,将main.storyboard中的cell的类与自定义的类关联即可
+    cell.channel = channel;
     
     // 3.返回cell
     return cell;

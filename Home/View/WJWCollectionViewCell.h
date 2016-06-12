@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WJWChannel;
 @interface WJWCollectionViewCell : UICollectionViewCell
 
+// 频道模型
+@property (nonatomic,strong) WJWChannel *channel;
 @end

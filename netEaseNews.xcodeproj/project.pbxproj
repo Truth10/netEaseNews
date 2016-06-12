@@ -37,6 +37,8 @@
 		04CB674E1D0DA55A00EFA67D /* WJWChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB674D1D0DA55A00EFA67D /* WJWChannel.m */; };
 		04CB67511D0DB1D600EFA67D /* WJWChannelLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB67501D0DB1D600EFA67D /* WJWChannelLabel.m */; };
 		04E481931D0DC4BE00317E65 /* WJWCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E481921D0DC4BE00317E65 /* WJWCollectionViewCell.m */; };
+		04E4819A1D0DCB2000317E65 /* WJWNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E481991D0DCB2000317E65 /* WJWNewsTableViewController.m */; };
+		04E4819C1D0DCB5400317E65 /* news.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E4819B1D0DCB5400317E65 /* news.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +101,9 @@
 		04CB67501D0DB1D600EFA67D /* WJWChannelLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWChannelLabel.m; sourceTree = "<group>"; };
 		04E481911D0DC4BE00317E65 /* WJWCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWCollectionViewCell.h; sourceTree = "<group>"; };
 		04E481921D0DC4BE00317E65 /* WJWCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWCollectionViewCell.m; sourceTree = "<group>"; };
+		04E481981D0DCB2000317E65 /* WJWNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWNewsTableViewController.h; sourceTree = "<group>"; };
+		04E481991D0DCB2000317E65 /* WJWNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWNewsTableViewController.m; sourceTree = "<group>"; };
+		04E4819B1D0DCB5400317E65 /* news.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = news.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,11 +136,13 @@
 		04CB66E81D0D934900EFA67D /* netEaseNews */ = {
 			isa = PBXGroup;
 			children = (
+				04E481941D0DC89D00317E65 /* News */,
 				04CB67441D0D9E5000EFA67D /* Channel */,
 				04CB67401D0D9E3E00EFA67D /* Home */,
 				04CB67141D0D9C0C00EFA67D /* SDWebImage */,
 				04CB67001D0D9BF000EFA67D /* AFNetworking */,
 				04CB66F21D0D934900EFA67D /* Main.storyboard */,
+				04E4819B1D0DCB5400317E65 /* news.storyboard */,
 				04CB66E91D0D934900EFA67D /* Supporting Files */,
 			);
 			path = netEaseNews;
@@ -275,6 +282,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04E481941D0DC89D00317E65 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				04E481951D0DC89D00317E65 /* Controller */,
+				04E481961D0DC89D00317E65 /* Model */,
+				04E481971D0DC89D00317E65 /* View */,
+			);
+			path = News;
+			sourceTree = SOURCE_ROOT;
+		};
+		04E481951D0DC89D00317E65 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04E481981D0DCB2000317E65 /* WJWNewsTableViewController.h */,
+				04E481991D0DCB2000317E65 /* WJWNewsTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04E481961D0DC89D00317E65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04E481971D0DC89D00317E65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,6 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E4819C1D0DCB5400317E65 /* news.storyboard in Resources */,
 				04CB66F91D0D934900EFA67D /* LaunchScreen.storyboard in Resources */,
 				04CB66F61D0D934900EFA67D /* Assets.xcassets in Resources */,
 				04CB674B1D0DA3DB00EFA67D /* topic_news.json in Resources */,
@@ -371,6 +412,7 @@
 				04CB67121D0D9BF000EFA67D /* AFURLResponseSerialization.m in Sources */,
 				04CB673B1D0D9C0C00EFA67D /* UIImage+GIF.m in Sources */,
 				04CB67361D0D9C0C00EFA67D /* SDWebImageDownloader.m in Sources */,
+				04E4819A1D0DCB2000317E65 /* WJWNewsTableViewController.m in Sources */,
 				04CB670E1D0D9BF000EFA67D /* AFHTTPSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
