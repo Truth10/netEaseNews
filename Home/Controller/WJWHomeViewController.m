@@ -32,6 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.channelScrollView.
     
     // 显示频道
     [self setUpChannels];
@@ -41,7 +42,27 @@
     // 1.获取频道数组
     self.channels = [WJWChannel channels];
 
+    // 2.创建label
+    CGFloat channelLabelW = 80;
+    CGFloat channelLabelH = self.channelScrollView.bounds.size.height;
     
+    // for循环添加label
+    for (NSInteger i=0; i<self.channels.count; i++) {
+        // 创建label
+        WJWChannelLabel *lable = [[WJWChannelLabel alloc] initWithFrame:CGRectMake(i * channelLabelW, 0, channelLabelW, channelLabelH)];
+        
+        // 将频道显示在label上
+        lable.text = [self.channels[i] tname];
+        
+        // 给label设置随机颜色
+        lable.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+        
+        // 将label添加到channelScrollView上
+        [self.channelScrollView addSubview:lable];
+    }
+
+    // 设置channelScrollView的contentSize
+    self.channelScrollView.contentSize = CGSizeMake(channelLabelW * self.channels.count, channelLabelH);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
