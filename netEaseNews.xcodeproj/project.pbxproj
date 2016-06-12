@@ -39,6 +39,8 @@
 		04E481931D0DC4BE00317E65 /* WJWCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E481921D0DC4BE00317E65 /* WJWCollectionViewCell.m */; };
 		04E4819A1D0DCB2000317E65 /* WJWNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E481991D0DCB2000317E65 /* WJWNewsTableViewController.m */; };
 		04E4819C1D0DCB5400317E65 /* news.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E4819B1D0DCB5400317E65 /* news.storyboard */; };
+		04E481A01D0DDD3300317E65 /* WJWNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4819F1D0DDD3300317E65 /* WJWNetWorkTool.m */; };
+		04E481A31D0DE29B00317E65 /* WJWNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E481A21D0DE29B00317E65 /* WJWNews.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,10 @@
 		04E481981D0DCB2000317E65 /* WJWNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWNewsTableViewController.h; sourceTree = "<group>"; };
 		04E481991D0DCB2000317E65 /* WJWNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWNewsTableViewController.m; sourceTree = "<group>"; };
 		04E4819B1D0DCB5400317E65 /* news.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = news.storyboard; sourceTree = "<group>"; };
+		04E4819E1D0DDD3300317E65 /* WJWNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWNetWorkTool.h; sourceTree = "<group>"; };
+		04E4819F1D0DDD3300317E65 /* WJWNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWNetWorkTool.m; sourceTree = "<group>"; };
+		04E481A11D0DE29B00317E65 /* WJWNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWNews.h; sourceTree = "<group>"; };
+		04E481A21D0DE29B00317E65 /* WJWNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWNews.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,7 @@
 		04CB66E81D0D934900EFA67D /* netEaseNews */ = {
 			isa = PBXGroup;
 			children = (
+				04E4819D1D0DDCB800317E65 /* Tools */,
 				04E481941D0DC89D00317E65 /* News */,
 				04CB67441D0D9E5000EFA67D /* Channel */,
 				04CB67401D0D9E3E00EFA67D /* Home */,
@@ -311,9 +318,20 @@
 		04E481971D0DC89D00317E65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04E481A11D0DE29B00317E65 /* WJWNews.h */,
+				04E481A21D0DE29B00317E65 /* WJWNews.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
+		};
+		04E4819D1D0DDCB800317E65 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				04E4819E1D0DDD3300317E65 /* WJWNetWorkTool.h */,
+				04E4819F1D0DDD3300317E65 /* WJWNetWorkTool.m */,
+			);
+			path = Tools;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -392,6 +410,7 @@
 				04CB67351D0D9C0C00EFA67D /* SDWebImageDecoder.m in Sources */,
 				04CB67381D0D9C0C00EFA67D /* SDWebImageManager.m in Sources */,
 				04CB67491D0D9E8E00EFA67D /* WJWHomeViewController.m in Sources */,
+				04E481A31D0DE29B00317E65 /* WJWNews.m in Sources */,
 				04CB67321D0D9C0C00EFA67D /* NSData+ImageContentType.m in Sources */,
 				04CB67341D0D9C0C00EFA67D /* SDWebImageCompat.m in Sources */,
 				04CB67131D0D9BF000EFA67D /* AFURLSessionManager.m in Sources */,
@@ -402,6 +421,7 @@
 				04CB67391D0D9C0C00EFA67D /* SDWebImagePrefetcher.m in Sources */,
 				04CB67371D0D9C0C00EFA67D /* SDWebImageDownloaderOperation.m in Sources */,
 				04CB670F1D0D9BF000EFA67D /* AFNetworkReachabilityManager.m in Sources */,
+				04E481A01D0DDD3300317E65 /* WJWNetWorkTool.m in Sources */,
 				04E481931D0DC4BE00317E65 /* WJWCollectionViewCell.m in Sources */,
 				04CB66EB1D0D934900EFA67D /* main.m in Sources */,
 				04CB673D1D0D9C0C00EFA67D /* UIImageView+HighlightedWebCache.m in Sources */,
