@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "401104A929048C2F4BC24DA7E0CF3040EF1E4543",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "401104A929048C2F4BC24DA7E0CF3040EF1E4543" : 0,
+    "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5DACCC1B-FD88-4CD8-BF86-2B49E0EF0D90",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "401104A929048C2F4BC24DA7E0CF3040EF1E4543" : "netEaseNews\/",
+    "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : "..\/..\/..\/..\/Desktop\/%E8%A7%86%E9%A2%91%E5%92%8C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99\/%E5%AE%9E%E7%94%A8%E8%B5%84%E6%96%99\/%E6%A1%86%E6%9E%B6\/AFNetworking"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "netEaseNews",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "netEaseNews.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Truth10\/netEaseNews.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "401104A929048C2F4BC24DA7E0CF3040EF1E4543"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/AFNetworking\/AFNetworking.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8"
+    }
+  ]
+}

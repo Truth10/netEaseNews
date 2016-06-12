@@ -33,6 +33,8 @@
 		04CB673E1D0D9C0C00EFA67D /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB672F1D0D9C0C00EFA67D /* UIImageView+WebCache.m */; };
 		04CB673F1D0D9C0C00EFA67D /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB67311D0D9C0C00EFA67D /* UIView+WebCacheOperation.m */; };
 		04CB67491D0D9E8E00EFA67D /* WJWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB67481D0D9E8E00EFA67D /* WJWHomeViewController.m */; };
+		04CB674B1D0DA3DB00EFA67D /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CB674A1D0DA3DB00EFA67D /* topic_news.json */; };
+		04CB674E1D0DA55A00EFA67D /* WJWChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB674D1D0DA55A00EFA67D /* WJWChannel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,9 @@
 		04CB67311D0D9C0C00EFA67D /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		04CB67471D0D9E8E00EFA67D /* WJWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWHomeViewController.h; sourceTree = "<group>"; };
 		04CB67481D0D9E8E00EFA67D /* WJWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWHomeViewController.m; sourceTree = "<group>"; };
+		04CB674A1D0DA3DB00EFA67D /* topic_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = topic_news.json; path = "../../../../../../Desktop/视频和学习资料/网络/网络第7天(网易新闻)/01-教学资源/备课代码/NewsBoard/NewsBoard/topic_news.json"; sourceTree = "<group>"; };
+		04CB674C1D0DA55A00EFA67D /* WJWChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWChannel.h; sourceTree = "<group>"; };
+		04CB674D1D0DA55A00EFA67D /* WJWChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWChannel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,12 +129,7 @@
 				04CB67401D0D9E3E00EFA67D /* Home */,
 				04CB67141D0D9C0C00EFA67D /* SDWebImage */,
 				04CB67001D0D9BF000EFA67D /* AFNetworking */,
-				04CB66EC1D0D934900EFA67D /* AppDelegate.h */,
-				04CB66ED1D0D934900EFA67D /* AppDelegate.m */,
 				04CB66F21D0D934900EFA67D /* Main.storyboard */,
-				04CB66F51D0D934900EFA67D /* Assets.xcassets */,
-				04CB66F71D0D934900EFA67D /* LaunchScreen.storyboard */,
-				04CB66FA1D0D934900EFA67D /* Info.plist */,
 				04CB66E91D0D934900EFA67D /* Supporting Files */,
 			);
 			path = netEaseNews;
@@ -138,6 +138,12 @@
 		04CB66E91D0D934900EFA67D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04CB674A1D0DA3DB00EFA67D /* topic_news.json */,
+				04CB66EC1D0D934900EFA67D /* AppDelegate.h */,
+				04CB66ED1D0D934900EFA67D /* AppDelegate.m */,
+				04CB66F51D0D934900EFA67D /* Assets.xcassets */,
+				04CB66F71D0D934900EFA67D /* LaunchScreen.storyboard */,
+				04CB66FA1D0D934900EFA67D /* Info.plist */,
 				04CB66EA1D0D934900EFA67D /* main.m */,
 			);
 			name = "Supporting Files";
@@ -246,6 +252,8 @@
 		04CB67451D0D9E5000EFA67D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04CB674C1D0DA55A00EFA67D /* WJWChannel.h */,
+				04CB674D1D0DA55A00EFA67D /* WJWChannel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,6 +324,7 @@
 			files = (
 				04CB66F91D0D934900EFA67D /* LaunchScreen.storyboard in Resources */,
 				04CB66F61D0D934900EFA67D /* Assets.xcassets in Resources */,
+				04CB674B1D0DA3DB00EFA67D /* topic_news.json in Resources */,
 				04CB66F41D0D934900EFA67D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +344,7 @@
 				04CB67341D0D9C0C00EFA67D /* SDWebImageCompat.m in Sources */,
 				04CB67131D0D9BF000EFA67D /* AFURLSessionManager.m in Sources */,
 				04CB673F1D0D9C0C00EFA67D /* UIView+WebCacheOperation.m in Sources */,
+				04CB674E1D0DA55A00EFA67D /* WJWChannel.m in Sources */,
 				04CB66EE1D0D934900EFA67D /* AppDelegate.m in Sources */,
 				04CB673A1D0D9C0C00EFA67D /* UIButton+WebCache.m in Sources */,
 				04CB67391D0D9C0C00EFA67D /* SDWebImagePrefetcher.m in Sources */,

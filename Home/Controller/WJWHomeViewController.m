@@ -9,16 +9,37 @@
 #import "WJWHomeViewController.h"
 
 @interface WJWHomeViewController ()
-
+/**
+ *  频道scrollView
+ */
+@property (weak, nonatomic) IBOutlet UIScrollView *channelScrollView;
+/**
+ *  存储所有频道的数组
+ */
+@property (nonatomic,strong) NSArray *channels;
+/**
+ *  新闻collectionView
+ */
+@property (weak, nonatomic) IBOutlet UICollectionView *newsCollectionView;
+/**
+ *  新闻流布局
+ */
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *newsFlowLayout;
 @end
 
 @implementation WJWHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // 显示频道
+    [self setUpChannels];
 }
 
+- (void)setUpChannels{
+
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
