@@ -9,7 +9,7 @@
 #import "WJWHomeViewController.h"
 #import "WJWChannel.h"
 #import "WJWChannelLabel.h"
-@interface WJWHomeViewController ()
+@interface WJWHomeViewController ()<UICollectionViewDataSource>
 /**
  *  频道scrollView
  */
@@ -32,12 +32,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.channelScrollView.
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     // 显示频道
     [self setUpChannels];
+    
+    // collectionView设置数据源
+    self.newsCollectionView.dataSource = self;
+    
+    // 设置新闻的流布局
+    [self setUpCollectionViewFlowLayout];
 }
 
+#pragma mark - 显示频道
 - (void)setUpChannels{
     // 1.获取频道数组
     self.channels = [WJWChannel channels];
@@ -64,19 +71,42 @@
     // 设置channelScrollView的contentSize
     self.channelScrollView.contentSize = CGSizeMake(channelLabelW * self.channels.count, channelLabelH);
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark - 设置collectionView的流布局
+- (void)setUpCollectionViewFlowLayout{
+    // 设置格子大小
+    self.newsFlowLayout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64 -44);
+    
+    // 设置间距
+    self.newsFlowLayout.minimumLineSpacing = 0;
+    
+    // 设置滚动方向
+    self.newsFlowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    // 设置分页效果
+    self.newsCollectionView.pagingEnabled = YES;
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - collectionView的数据源方法
+// 返回格子数目
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.channels.count;
 }
-*/
 
+// 返回
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    // 1.创建cell
+    static NSString *ID = @"news";
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    
+//    if (cell == nil) {
+//        cell = [[UICollectionViewCell alloc] initwith];
+//    }
+    // 2.设置数据
+    
+    // 3.返回cell
+    return cell;
+}
 @end

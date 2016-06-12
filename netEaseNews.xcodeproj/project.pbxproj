@@ -36,6 +36,7 @@
 		04CB674B1D0DA3DB00EFA67D /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CB674A1D0DA3DB00EFA67D /* topic_news.json */; };
 		04CB674E1D0DA55A00EFA67D /* WJWChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB674D1D0DA55A00EFA67D /* WJWChannel.m */; };
 		04CB67511D0DB1D600EFA67D /* WJWChannelLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB67501D0DB1D600EFA67D /* WJWChannelLabel.m */; };
+		04E481931D0DC4BE00317E65 /* WJWCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E481921D0DC4BE00317E65 /* WJWCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,8 @@
 		04CB674D1D0DA55A00EFA67D /* WJWChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWChannel.m; sourceTree = "<group>"; };
 		04CB674F1D0DB1D600EFA67D /* WJWChannelLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWChannelLabel.h; sourceTree = "<group>"; };
 		04CB67501D0DB1D600EFA67D /* WJWChannelLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWChannelLabel.m; sourceTree = "<group>"; };
+		04E481911D0DC4BE00317E65 /* WJWCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWCollectionViewCell.h; sourceTree = "<group>"; };
+		04E481921D0DC4BE00317E65 /* WJWCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +242,8 @@
 		04CB67431D0D9E3E00EFA67D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04E481911D0DC4BE00317E65 /* WJWCollectionViewCell.h */,
+				04E481921D0DC4BE00317E65 /* WJWCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				04CB67391D0D9C0C00EFA67D /* SDWebImagePrefetcher.m in Sources */,
 				04CB67371D0D9C0C00EFA67D /* SDWebImageDownloaderOperation.m in Sources */,
 				04CB670F1D0D9BF000EFA67D /* AFNetworkReachabilityManager.m in Sources */,
+				04E481931D0DC4BE00317E65 /* WJWCollectionViewCell.m in Sources */,
 				04CB66EB1D0D934900EFA67D /* main.m in Sources */,
 				04CB673D1D0D9C0C00EFA67D /* UIImageView+HighlightedWebCache.m in Sources */,
 				04CB673C1D0D9C0C00EFA67D /* UIImage+MultiFormat.m in Sources */,
@@ -514,6 +520,7 @@
 				04CB66FF1D0D934A00EFA67D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
