@@ -20,7 +20,7 @@
         _tidURLString = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/list/%@/0-20.html",_tid];
     }
 
-    NSLog(@"tidURLString:%@",_tidURLString);
+    // NSLog(@"tidURLString:%@",_tidURLString);
 }
 
 #pragma mark - 字典转模型
@@ -40,7 +40,7 @@
 
 #pragma mark - 重写description方法
 - (NSString *)description{
-    return [NSString stringWithFormat:@"tid:%@---tname:%@",_tid,_tname];
+    return [NSString stringWithFormat:@"tid:%@---tname:%@---tidURLString:%@",_tid,_tname,_tidURLString];
 }
 
 #pragma mark - 将json数据转为模型

@@ -1,0 +1,17 @@
+//
+//  PrefixHeader.pch
+//  netEaseNews
+//
+//  Created by mac on 16/8/17.
+//  Copyright © 2016年 itheima. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+#ifdef DEBUG
+#define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
+#endif

@@ -10,8 +10,11 @@
 #import "WJWChannel.h"
 #import "WJWChannelLabel.h"
 #import "WJWCollectionViewCell.h"
-//#import ""
-@interface WJWHomeViewController ()<UICollectionViewDataSource>
+
+// 频道标签的宽度
+#define ChannelLabelWidth 80
+#define KScreenWidth [UIScreen mainScreen].bounds.size.width
+@interface WJWHomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 /**
  *  频道scrollView
  */
@@ -28,12 +31,21 @@
  *  新闻流布局
  */
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *newsFlowLayout;
+/**
+ *  被选中的频道
+ */
+@property (nonatomic,weak) UILabel *selectedChannelLabel;
+/**
+ *  存储所有频道标签的数组
+ */
+@property (nonatomic,strong) NSArray<UILabel *> *channelLabels;
 @end
 
 @implementation WJWHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 用来解决scrollView遇到导航控制器时，内容向下移动64的问题
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     // 显示频道
@@ -41,9 +53,16 @@
     
     // collectionView设置数据源
     self.newsCollectionView.dataSource = self;
+    self.newsCollectionView.delegate = self;
+    
+    self.channelScrollView.delegate = self;
     
     // 设置新闻的流布局
     [self setUpCollectionViewFlowLayout];
+    // NSLog(@"%@",self.channelLabels[0]);
+    
+    //self.selectedChannelLabel = self.channelScrollView.subviews[2];
+    [self selectChannelLabel:self.channelLabels[0]];
 }
 
 #pragma mark - 显示频道
@@ -52,9 +71,10 @@
     self.channels = [WJWChannel channels];
     
     // 2.创建label
-    CGFloat channelLabelW = 80;
+    CGFloat channelLabelW = ChannelLabelWidth;
     CGFloat channelLabelH = self.channelScrollView.bounds.size.height;
     
+    NSMutableArray *arrM = [NSMutableArray array];
     // for循环添加label
     for (NSInteger i=0; i<self.channels.count; i++) {
         // 创建label
@@ -64,14 +84,67 @@
         lable.text = [self.channels[i] tname];
         
         // 给label设置随机颜色
-        lable.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+        // lable.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+        
+        lable.tag = i;
+        lable.userInteractionEnabled = YES;
+        
+        // 给lable添加点按的手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [lable addGestureRecognizer:tap];
         
         // 将label添加到channelScrollView上
         [self.channelScrollView addSubview:lable];
+        [arrM addObject:lable];
     }
+    self.channelLabels = arrM.copy;
     
     // 设置channelScrollView的contentSize
     self.channelScrollView.contentSize = CGSizeMake(channelLabelW * self.channels.count, channelLabelH);
+}
+
+- (void)tapAction:(UITapGestureRecognizer *)recognizer{
+    
+    // 让对应频道的label居中显示，字体变大并变为红色
+    if (self.selectedChannelLabel == (UILabel *)recognizer.view) {
+        return;
+    }
+    self.selectedChannelLabel.font = [UIFont systemFontOfSize:17];
+    self.selectedChannelLabel.textColor = [UIColor blackColor];
+    if (recognizer.view.tag != self.selectedChannelLabel.tag) {
+        
+        UILabel *label = (UILabel *)recognizer.view;
+
+        [self selectChannelLabel:label];
+        
+        self.selectedChannelLabel = label;
+    }
+    // 选中对应的频道的cell
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:recognizer.view.tag inSection:0];
+    [self.newsCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+
+}
+
+- (void)selectChannelLabel:(UILabel *)label{
+   
+    label.font =  [UIFont systemFontOfSize:20];
+    label.textColor = [UIColor redColor];
+    
+    // 让频道标签居中
+    CGFloat labelX = label.tag * ChannelLabelWidth;
+    CGFloat middleX = (KScreenWidth - ChannelLabelWidth) / 2;
+    if ((labelX - middleX > 0) && (labelX < (self.channels.count * ChannelLabelWidth - KScreenWidth + middleX)) ) {
+        
+        self.channelScrollView.contentOffset = CGPointMake(labelX - middleX, 0);
+    }
+    
+
+}
+#pragma mark - scrollView的代理方法，监听channelScrollView的滚动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//     NSLog(@"%f",self.channelScrollView.contentOffset.x);
+   
+   
 }
 
 #pragma mark - 设置collectionView的流布局
@@ -115,5 +188,36 @@
     
     // 3.返回cell
     return cell;
+}
+
+#pragma mark - 选中某一个cell的代理方法
+//- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+//    if (self.selectedChannelLabel == self.channelLabels[indexPath.item]) {
+//        return;
+//    }
+//    self.selectedChannelLabel.font = [UIFont systemFontOfSize:17];
+//    self.selectedChannelLabel.textColor = [UIColor blackColor];
+//    if (self.selectedChannelLabel != self.channelLabels[indexPath.item]) {
+//        
+//        [self selectChannelLabel:self.channelLabels[indexPath.item]];
+//        self.selectedChannelLabel = self.channelLabels[indexPath.item];
+//    }
+//
+//
+//}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    // NSLog(@"%ld",(long)indexPath.item);
+    // 让对应频道的label居中显示，字体变大并变为红色
+    if (self.selectedChannelLabel == self.channelLabels[indexPath.item]) {
+        return;
+    }
+    self.selectedChannelLabel.font = [UIFont systemFontOfSize:17];
+    self.selectedChannelLabel.textColor = [UIColor blackColor];
+    if (self.selectedChannelLabel != self.channelLabels[indexPath.item]) {
+        
+        [self selectChannelLabel:self.channelLabels[indexPath.item]];
+        self.selectedChannelLabel = self.channelLabels[indexPath.item];
+    }
 }
 @end

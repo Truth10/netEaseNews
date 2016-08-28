@@ -38,7 +38,11 @@ static NSString *BaseURLString = @"http://xxxxxxxxx/";
     [self GET:URLString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // 通过block传递给模型
         if (finishblock) {
-            finishBlock(responseObject);
+            // NSLog(@"%@",responseObject);
+#warning mark - responseObject有值,但是没有被使用,调用的方法无效
+            // 原因：应写finishblock，而不是finishBlock.
+            //finishBlock(responseObject);
+            finishblock(responseObject);
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

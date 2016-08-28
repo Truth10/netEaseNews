@@ -23,6 +23,10 @@
 
 }
 
+- (NSString *)description{
+    return [NSString stringWithFormat:@"title:%@--digest:%@--imgextra:%@--imgType:%d",_title,_digest,_imgextra,_imgType];
+}
+
 + (void)newsWithURLsting:(NSString *)urlString completeBLock:(completeBlock)completeBlcok{
     [[WJWNetWorkTool sharedWJWNetWorkTool] objectWithURLString:urlString andFinishedBlock:^(id result) {
         NSDictionary *dict = (NSDictionary *)result;
@@ -47,8 +51,9 @@
         if (completeBlcok) {
             completeBlcok(newsList.copy);
         }
+
     }];
-    
+
 
 }
 @end

@@ -38,4 +38,5 @@
     self.newsTableVC.tidURLString = channel.tidURLString;
 
 }
+
 @end

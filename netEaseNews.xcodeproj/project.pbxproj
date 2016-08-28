@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0413638E1D729156004A88A0 /* JWCycleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413638D1D729156004A88A0 /* JWCycleCollectionViewController.m */; };
+		049C6EE51D647F5100CC3F91 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C6EE41D647F5100CC3F91 /* NSArray+Log.m */; };
+		049F8C941D6CCFF2003DF8FF /* WJWNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049F8C931D6CCFF2003DF8FF /* WJWNewsTableViewCell.m */; };
 		04CB66EB1D0D934900EFA67D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB66EA1D0D934900EFA67D /* main.m */; };
 		04CB66EE1D0D934900EFA67D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB66ED1D0D934900EFA67D /* AppDelegate.m */; };
 		04CB66F41D0D934900EFA67D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CB66F21D0D934900EFA67D /* Main.storyboard */; };
@@ -44,6 +47,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0413638C1D729156004A88A0 /* JWCycleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWCycleCollectionViewController.h; sourceTree = "<group>"; };
+		0413638D1D729156004A88A0 /* JWCycleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWCycleCollectionViewController.m; sourceTree = "<group>"; };
+		049C6EE11D644DC200CC3F91 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		049C6EE31D647F5100CC3F91 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		049C6EE41D647F5100CC3F91 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		049F8C921D6CCFF2003DF8FF /* WJWNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWNewsTableViewCell.h; sourceTree = "<group>"; };
+		049F8C931D6CCFF2003DF8FF /* WJWNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWNewsTableViewCell.m; sourceTree = "<group>"; };
 		04CB66E61D0D934900EFA67D /* netEaseNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netEaseNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CB66EA1D0D934900EFA67D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04CB66EC1D0D934900EFA67D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,8 +118,8 @@
 		04E4819B1D0DCB5400317E65 /* news.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = news.storyboard; sourceTree = "<group>"; };
 		04E4819E1D0DDD3300317E65 /* WJWNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWNetWorkTool.h; sourceTree = "<group>"; };
 		04E4819F1D0DDD3300317E65 /* WJWNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWNetWorkTool.m; sourceTree = "<group>"; };
-		04E481A11D0DE29B00317E65 /* WJWNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWNews.h; sourceTree = "<group>"; };
-		04E481A21D0DE29B00317E65 /* WJWNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWNews.m; sourceTree = "<group>"; };
+		04E481A11D0DE29B00317E65 /* WJWNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJWNews.h; path = ../View/WJWNews.h; sourceTree = "<group>"; };
+		04E481A21D0DE29B00317E65 /* WJWNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJWNews.m; path = ../View/WJWNews.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +133,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041363881D729114004A88A0 /* PictureCycle */ = {
+			isa = PBXGroup;
+			children = (
+				041363891D729114004A88A0 /* Controller */,
+				0413638A1D729114004A88A0 /* Model */,
+				0413638B1D729114004A88A0 /* View */,
+			);
+			path = PictureCycle;
+			sourceTree = "<group>";
+		};
+		041363891D729114004A88A0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0413638C1D729156004A88A0 /* JWCycleCollectionViewController.h */,
+				0413638D1D729156004A88A0 /* JWCycleCollectionViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0413638A1D729114004A88A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0413638B1D729114004A88A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		049C6EE21D647F5100CC3F91 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				049C6EE31D647F5100CC3F91 /* NSArray+Log.h */,
+				049C6EE41D647F5100CC3F91 /* NSArray+Log.m */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		04CB66DD1D0D934900EFA67D = {
 			isa = PBXGroup;
 			children = (
@@ -142,12 +194,12 @@
 		04CB66E81D0D934900EFA67D /* netEaseNews */ = {
 			isa = PBXGroup;
 			children = (
+				04FFB67B1D4C307900CE00BB /* Lib */,
 				04E4819D1D0DDCB800317E65 /* Tools */,
 				04E481941D0DC89D00317E65 /* News */,
 				04CB67441D0D9E5000EFA67D /* Channel */,
+				041363881D729114004A88A0 /* PictureCycle */,
 				04CB67401D0D9E3E00EFA67D /* Home */,
-				04CB67141D0D9C0C00EFA67D /* SDWebImage */,
-				04CB67001D0D9BF000EFA67D /* AFNetworking */,
 				04CB66F21D0D934900EFA67D /* Main.storyboard */,
 				04E4819B1D0DCB5400317E65 /* news.storyboard */,
 				04CB66E91D0D934900EFA67D /* Supporting Files */,
@@ -160,6 +212,7 @@
 			children = (
 				04CB674A1D0DA3DB00EFA67D /* topic_news.json */,
 				04CB66EC1D0D934900EFA67D /* AppDelegate.h */,
+				049C6EE11D644DC200CC3F91 /* PrefixHeader.pch */,
 				04CB66ED1D0D934900EFA67D /* AppDelegate.m */,
 				04CB66F51D0D934900EFA67D /* Assets.xcassets */,
 				04CB66F71D0D934900EFA67D /* LaunchScreen.storyboard */,
@@ -187,7 +240,7 @@
 				04CB670D1D0D9BF000EFA67D /* AFURLSessionManager.m */,
 			);
 			name = AFNetworking;
-			path = "../../../../../../Desktop/视频和学习资料/实用资料/框架/AFNetworking/AFNetworking";
+			path = "../../../../../../视频和学习资料/实用资料/框架/AFNetworking/AFNetworking";
 			sourceTree = "<group>";
 		};
 		04CB67141D0D9C0C00EFA67D /* SDWebImage */ = {
@@ -224,7 +277,7 @@
 				04CB67311D0D9C0C00EFA67D /* UIView+WebCacheOperation.m */,
 			);
 			name = SDWebImage;
-			path = "../../../../../../Desktop/视频和学习资料/实用资料/框架/网络获取图片的第三方框架/SDWebImage";
+			path = "../../../../../../视频和学习资料/实用资料/框架/网络获取图片的第三方框架/SDWebImage";
 			sourceTree = "<group>";
 		};
 		04CB67401D0D9E3E00EFA67D /* Home */ = {
@@ -292,9 +345,9 @@
 		04E481941D0DC89D00317E65 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				04E481951D0DC89D00317E65 /* Controller */,
 				04E481961D0DC89D00317E65 /* Model */,
 				04E481971D0DC89D00317E65 /* View */,
+				04E481951D0DC89D00317E65 /* Controller */,
 			);
 			path = News;
 			sourceTree = SOURCE_ROOT;
@@ -311,6 +364,8 @@
 		04E481961D0DC89D00317E65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04E481A11D0DE29B00317E65 /* WJWNews.h */,
+				04E481A21D0DE29B00317E65 /* WJWNews.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,8 +373,8 @@
 		04E481971D0DC89D00317E65 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				04E481A11D0DE29B00317E65 /* WJWNews.h */,
-				04E481A21D0DE29B00317E65 /* WJWNews.m */,
+				049F8C921D6CCFF2003DF8FF /* WJWNewsTableViewCell.h */,
+				049F8C931D6CCFF2003DF8FF /* WJWNewsTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,6 +387,16 @@
 			);
 			path = Tools;
 			sourceTree = SOURCE_ROOT;
+		};
+		04FFB67B1D4C307900CE00BB /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				049C6EE21D647F5100CC3F91 /* Log */,
+				04CB67141D0D9C0C00EFA67D /* SDWebImage */,
+				04CB67001D0D9BF000EFA67D /* AFNetworking */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -364,6 +429,7 @@
 				TargetAttributes = {
 					04CB66E51D0D934900EFA67D = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = MNTZUYV532;
 					};
 				};
 			};
@@ -411,7 +477,9 @@
 				04CB67381D0D9C0C00EFA67D /* SDWebImageManager.m in Sources */,
 				04CB67491D0D9E8E00EFA67D /* WJWHomeViewController.m in Sources */,
 				04E481A31D0DE29B00317E65 /* WJWNews.m in Sources */,
+				049F8C941D6CCFF2003DF8FF /* WJWNewsTableViewCell.m in Sources */,
 				04CB67321D0D9C0C00EFA67D /* NSData+ImageContentType.m in Sources */,
+				0413638E1D729156004A88A0 /* JWCycleCollectionViewController.m in Sources */,
 				04CB67341D0D9C0C00EFA67D /* SDWebImageCompat.m in Sources */,
 				04CB67131D0D9BF000EFA67D /* AFURLSessionManager.m in Sources */,
 				04CB673F1D0D9C0C00EFA67D /* UIView+WebCacheOperation.m in Sources */,
@@ -420,6 +488,7 @@
 				04CB673A1D0D9C0C00EFA67D /* UIButton+WebCache.m in Sources */,
 				04CB67391D0D9C0C00EFA67D /* SDWebImagePrefetcher.m in Sources */,
 				04CB67371D0D9C0C00EFA67D /* SDWebImageDownloaderOperation.m in Sources */,
+				049C6EE51D647F5100CC3F91 /* NSArray+Log.m in Sources */,
 				04CB670F1D0D9BF000EFA67D /* AFNetworkReachabilityManager.m in Sources */,
 				04E481A01D0DDD3300317E65 /* WJWNetWorkTool.m in Sources */,
 				04E481931D0DC4BE00317E65 /* WJWCollectionViewCell.m in Sources */,
@@ -545,10 +614,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = netEaseNews/PrefixHeader.pch;
 				INFOPLIST_FILE = netEaseNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itheima.netEaseNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -556,10 +630,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = netEaseNews/PrefixHeader.pch;
 				INFOPLIST_FILE = netEaseNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itheima.netEaseNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
