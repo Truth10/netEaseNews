@@ -61,7 +61,7 @@
     [self setUpCollectionViewFlowLayout];
     // NSLog(@"%@",self.channelLabels[0]);
     
-    //self.selectedChannelLabel = self.channelScrollView.subviews[2];
+    self.selectedChannelLabel = self.channelLabels[0];
     [self selectChannelLabel:self.channelLabels[0]];
 }
 
@@ -137,15 +137,24 @@
         
         self.channelScrollView.contentOffset = CGPointMake(labelX - middleX, 0);
     }
-    
-
 }
 #pragma mark - scrollView的代理方法，监听channelScrollView的滚动
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 //     NSLog(@"%f",self.channelScrollView.contentOffset.x);
-   
-   
+    NSInteger index = self.newsCollectionView.contentOffset.x / KScreenWidth;
+    if (self.selectedChannelLabel == self.channelLabels[index]) {
+        return;
+    }
+    self.selectedChannelLabel.font = [UIFont systemFontOfSize:17];
+    self.selectedChannelLabel.textColor = [UIColor blackColor];
+    if (self.selectedChannelLabel != self.channelLabels[index]) {
+        
+        [self selectChannelLabel:self.channelLabels[index]];
+        self.selectedChannelLabel = self.channelLabels[index];
+    }
+
 }
+
 
 #pragma mark - 设置collectionView的流布局
 - (void)setUpCollectionViewFlowLayout{
@@ -206,18 +215,18 @@
 //
 //}
 
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-    // NSLog(@"%ld",(long)indexPath.item);
-    // 让对应频道的label居中显示，字体变大并变为红色
-    if (self.selectedChannelLabel == self.channelLabels[indexPath.item]) {
-        return;
-    }
-    self.selectedChannelLabel.font = [UIFont systemFontOfSize:17];
-    self.selectedChannelLabel.textColor = [UIColor blackColor];
-    if (self.selectedChannelLabel != self.channelLabels[indexPath.item]) {
-        
-        [self selectChannelLabel:self.channelLabels[indexPath.item]];
-        self.selectedChannelLabel = self.channelLabels[indexPath.item];
-    }
-}
+//- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+//    // NSLog(@"%ld",(long)indexPath.item);
+//    // 让对应频道的label居中显示，字体变大并变为红色
+//    if (self.selectedChannelLabel == self.channelLabels[indexPath.item]) {
+//        return;
+//    }
+//    self.selectedChannelLabel.font = [UIFont systemFontOfSize:17];
+//    self.selectedChannelLabel.textColor = [UIColor blackColor];
+//    if (self.selectedChannelLabel != self.channelLabels[indexPath.item]) {
+//        
+//        [self selectChannelLabel:self.channelLabels[indexPath.item]];
+//        self.selectedChannelLabel = self.channelLabels[indexPath.item];
+//    }
+//}
 @end

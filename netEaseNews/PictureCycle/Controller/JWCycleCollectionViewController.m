@@ -7,9 +7,21 @@
 // http://c.m.163.com/nc/ad/headline/0-4.html
 
 #import "JWCycleCollectionViewController.h"
+#import "JWCycle.h"
+#import "JWCycleCollectionViewCell.h"
 
+#define KSectionCount 100
+#define KScreenWidth  [UIScreen mainScreen].bounds.size.width
 @interface JWCycleCollectionViewController ()
 
+// 存储轮播数据模型的数组
+@property (nonatomic,strong) NSArray <JWCycle *>*cycles;
+
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+
+@property (nonatomic,weak) UIPageControl *pageControl;
+// 定时器
+@property (nonatomic,strong) NSTimer *timer;
 @end
 
 @implementation JWCycleCollectionViewController
@@ -18,81 +30,161 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    // self.automaticallyAdjustsScrollViewInsets = NO;
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+    // [self.collectionView registerClass:[JWCycleCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self loadData];
     
-    // Do any additional setup after loading the view.
+    self.flowLayout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 200);
+    self.flowLayout.minimumInteritemSpacing = 0;
+    self.flowLayout.minimumLineSpacing = 0;
+    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.collectionView.pagingEnabled = YES;
+    self.collectionView.bounces = NO;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    self.collectionView.showsVerticalScrollIndicator = NO;
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)loadData{
+    __weak typeof(self) weakSelf = self;
+    [JWCycle cylcesWithURLsting:@"http://c.m.163.com/nc/ad/headline/0-4.html" completeBLock:^(NSArray *cyclePictures) {
+        // NSLog(@"加载到数据了");
+        weakSelf.cycles = cyclePictures;
+        
+        [weakSelf.collectionView reloadData];
+        
+        // 默认选中中间那一组
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:KSectionCount / 2];
+        [weakSelf.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        
+        [self timer];
+        
+        [self setUpPageControl];
+        
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return KSectionCount;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+
+    return self.cycles.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    JWCycleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    //cell.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+
+    JWCycle *cycle = self.cycles[indexPath.item];
     
+    cell.cycle = cycle;
     return cell;
 }
 
+#pragma mark - 定时器
+- (NSTimer *)timer{
+    if (!_timer) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+        // 添加到主运行循环
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+    return _timer;
+}
+
+- (void)nextPage{
+    NSIndexPath *indexPath = [[self.collectionView indexPathsForVisibleItems] lastObject];
+    
+    // 中间那组的索引
+    NSIndexPath *middleIndexPath = [NSIndexPath indexPathForItem:indexPath.item inSection:(KSectionCount / 2)];
+    [self.collectionView scrollToItemAtIndexPath:middleIndexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    
+    if (middleIndexPath.item != self.cycles.count - 1){
+        middleIndexPath = [NSIndexPath indexPathForItem:(indexPath.item +1) inSection:middleIndexPath.section];
+    } else{
+        middleIndexPath = [NSIndexPath indexPathForItem:0 inSection:middleIndexPath.section+1];
+        
+    }
+    
+    [self.collectionView scrollToItemAtIndexPath:middleIndexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+    
+}
+
 #pragma mark <UICollectionViewDelegate>
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
+    [self.timer invalidate];
+    self.timer = nil;
+    
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if (decelerate == NO) { // 没有降速的过程,直接在此方法中去添加定时器
+        [self timer];
+    }
+
 }
 
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    [self timer];
+    
+//    [self scrollViewDidStop];
+  
 }
-*/
 
+//- (void)scrollViewDidStop{
+//    
+//    NSIndexPath *indexPath = [[self.collectionView indexPathsForVisibleItems] lastObject];
+//    
+//    if (indexPath.section == KSectionCount / 2) {
+//        return;
+//    }
+//    
+//    NSIndexPath *index = [NSIndexPath indexPathForItem:indexPath.item inSection:KSectionCount / 2];
+//    
+//    // 让collectionView不加动画滚动到中间那一组对应的cell去
+//    [self.collectionView scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+//
+//}
+//
+//- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+//    [self scrollViewDidStop];
+//}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    // 确定当前页数及组数
+    NSInteger currentPage = self.collectionView.contentOffset.x / KScreenWidth;
+    NSInteger currentPageIndex = currentPage % self.cycles.count;
+   
+    self.pageControl.currentPage = currentPageIndex;
+}
+
+- (void)setUpPageControl{
+    UIPageControl *pageControl = [[UIPageControl alloc] init];
+    
+    pageControl.center = CGPointMake(KScreenWidth * 0.85, self.collectionView.bounds.size.height - 17);
+    pageControl.bounds = CGRectMake(0, 0, 100, 50);
+    pageControl.numberOfPages = self.cycles.count; // 一共显示多少个圆点（多少页）
+    // 设置非选中页的圆点颜色
+    pageControl.pageIndicatorTintColor = [UIColor redColor];
+    // 设置选中页的圆点颜色
+    pageControl.currentPageIndicatorTintColor = [UIColor blueColor];
+    
+    // 禁止默认的点击功能
+    pageControl.enabled = NO;
+    
+    [self.view addSubview:pageControl];
+    _pageControl = pageControl;
+}
 @end
